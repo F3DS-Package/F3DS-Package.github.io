@@ -2,46 +2,54 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Getting Started
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## How to compile & setup
 
-## Getting Started
+First, you need to clone the repository and download submodules.
 
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+```:shell
+git clone https://github.com/F3DS-Package/F3DS-Package.git
+git submodule init
+git submodule update
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+F3DS only support for Linux system now. You can compile F3DS by Makefile like this.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
+```:shell
+make
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+Default compiler is set "gfortran" with a release build options.  
+If you want to use "ifort" and debug options, you can use the following command.
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+```:shell
+make COMPILER=ifort DEBUG=yes
+```
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+More details can be found in the script shown by the 'make help' command.  
+Finally, to install F3DS Package for your computer, run the bellow:
+
+```:shell
+make install
+```
+The default installation path is '/opt/f3ds-package'. You can change the installation path by the 'PLEFIX={path}' option.   
+Executing the script 'setenv.sh', you can easily set the environment variables of F3DS package.
+We recommend writing the following script to your bashrc or profile.
+
+```
+source /{your_f3ds_package_path}/setenv.sh
+```
+
+### Use F3DS Framework and F3DS Resource
+
+Please link static link libraries and mod files.
+
+```
+gfortran your_solver.f90 -o your_solver.exe -LF3DS_LIBS -IF3DS_MODS f3ds_framework.a
+```
+
+### Use solvers
+
+All binaries provided by F3DS collection are stored in "bins" directory. If you set the environment variables using "setenv.sh", binaries are already set to your environment.
+More information can be found in README.md in each collection directory.
