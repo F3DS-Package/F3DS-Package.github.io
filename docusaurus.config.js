@@ -82,7 +82,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} F3DS Package Authors. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} F3DS Package Authors.`,
       },
       prism: {
         theme: lightCodeTheme,
