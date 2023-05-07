@@ -17,6 +17,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 ### Test your Build Locally
 
 ```
+npm run build
 npm run serve
 ```
 
