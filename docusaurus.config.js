@@ -53,14 +53,9 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
       image: 'img/f3ds_package_social_card.jpg',
       navbar: {
         title: 'F3DS Package',
-        //logo: {
-        //  alt: 'My Site Logo',
-        //  src: 'img/logo.svg',
-        //},
         items: [
           {
             type: 'docSidebar',
@@ -81,8 +76,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} F3DS Package Authors.`,
+        copyright: `Copyright © ${new Date().getFullYear()} F3DS Package Authors. Documentation is available under a Creative Commons Attribution 4.0 International license <a href="https://creativecommons.org/licenses/by/4.0/">(CC BY 4.0)</a>.`,
       },
       prism: {
         theme: lightCodeTheme,
