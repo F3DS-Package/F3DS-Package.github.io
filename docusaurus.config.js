@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'F3DS Package',
-  tagline: 'Fortran Finite-volume Fluid Dynamics Solver (F3DS) Package',
+  tagline: 'An open-source modern Fortran based software for solving fluid dynamics problems',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
