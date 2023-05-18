@@ -2,9 +2,14 @@
 sidebar_position: 1
 ---
 
-# Getting Started
+# Installation
 
-## How to compile & setup
+## Requisites
+
+1. Operation system: Linux (Recommended is Ubuntu version 20.04 LTS or above.)
+2. Compiler: gfortran or ifort
+
+## Compilation & Installation
 
 First, you need to clone the repository and download submodules.
 
@@ -40,16 +45,3 @@ We recommend writing the following script to your bashrc or profile.
 ```
 source /{your_f3ds_package_path}/setenv.sh
 ```
-
-### Use F3DS Framework and F3DS Resource
-
-Please link static link libraries and mod files.
-
-```
-gfortran your_solver.f90 -o your_solver.exe -LF3DS_LIBS -IF3DS_MODS f3ds_framework.a
-```
-
-### Use solvers
-
-All binaries provided by F3DS collection are stored in "bins" directory. If you set the environment variables using "setenv.sh", binaries are already set to your environment.
-More information can be found in README.md in each collection directory.
