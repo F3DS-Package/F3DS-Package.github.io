@@ -15,6 +15,7 @@ First, you need to clone the repository and download submodules.
 
 ```:shell
 git clone https://github.com/F3DS-Package/F3DS-Package.git
+cd F3DS-Package
 git submodule init
 git submodule update
 ```
