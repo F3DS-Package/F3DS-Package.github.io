@@ -1,0 +1,8 @@
+{
+  "label": "Tutorial F3DS Framework",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Tutorial for developing your solver with F3DS Framework."
+  }
+}
