@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # インストール
 
-## リクエスト
+## 要求
 
 1. Operation system: Linux (Version 20.04 LTSまたはそれ以上のUbuntuを推奨)
 2. Compiler: gfortran or ifort
@@ -27,7 +27,7 @@ make
 ```
 
 デフォルトコンパイラは`gfortran`が指定されています。また、コンパイルオプションはリリースオプション（-O3、-march=native等、デバッグ時ではなく、実計算時に有益なオプション郡）が指定されています。
-もし、"ifort"及びデバッグオプションを利用したい場合は以下のオプションを付与します。
+"ifort"及びデバッグオプションを利用したい場合は以下のオプションを付与します。
 
 ```:shell
 make COMPILER=ifort DEBUG=yes
