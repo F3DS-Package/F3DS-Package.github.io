@@ -18,31 +18,47 @@ sidebar_position: 1
 
 ここでは、Frameworkの使用方法を学びます。例題として、保存量$\phi$の移流方程式、
 
-$$ \frac{d\phi}{dt} + \nabla\cdot\textit{\textbf{f}} = 0 $$
+$$
+\frac{d\phi}{dt} + \nabla\cdot\textit{\textbf{f}} = 0
+$$
 
 を有限体積法で解くことを考えます。ここで、$\textit{\textbf{f}} = \textit{\textbf{c}}\phi$は流束、$\textit{\textbf{c}}$は速度です。この式は体積$\textit{V}$の微小セルによる体積分で積分系へ変換でき、
 
-$$ \frac{\partial}{\partial t}\int_{V}\phi\textit{dV} + \int_{V}\nabla\cdot\textit{\textbf{f}}\textit{dV} = 0 $$
+$$
+\frac{\partial}{\partial t}\int_{V}\phi\textit{dV} + \int_{V}\nabla\cdot\textit{\textbf{f}}\textit{dV} = 0
+$$
 
 と表せます。さらに、Gaussの発散定理によって、
 
-$$ \frac{\partial}{\partial t}\int_{V}\phi\textit{dV} + \int_{S}(\textit{\textbf{f}}\cdot\textit{\textbf{n}})\textit{dS} = 0 $$
+$$
+\frac{\partial}{\partial t}\int_{V}\phi\textit{dV} + \int_{S}(\textit{\textbf{f}}\cdot\textit{\textbf{n}})\textit{dS} = 0
+$$
 
 と面積分に変換できます。ここで、$\textit{S}$は面積、$\textit{\textbf{n}}$は面に対する単位法線ベクトルです。この式を微小セル$\textit{i}$に適用すれば、
 
-$$ \frac{\partial}{\partial t}\phi_\textit{i}\textit{V}_\textit{i} + \sum_{\textit{j}\in\mathbb{F}_\textit{i}}(\textit{\textbf{f}}_\textit{j}\cdot\textit{\textbf{n}}_\textit{j})\textit{S}_\textit{j} = 0 $$
+$$
+\frac{\partial}{\partial t}\phi_\textit{i}\textit{V}_\textit{i} + \sum_{\textit{j}\in\mathbb{F}_\textit{i}}(\textit{\textbf{f}}_\textit{j}\cdot\textit{\textbf{n}}_\textit{j})\textit{S}_\textit{j} = 0
+$$
 
 と空間項を離散化することができます。ここで、$\mathbb{F}_\textit{i}$はセル$\textit{i}$が持つ面の集合を示します。最後に、時間項の残差$\textit{R}_\textit{i}$を使い、
 
-$$ \textit{R}(\phi_\textit{i}) = - \frac{1}{\textit{V}_\textit{i}}\sum_{\textit{j}\in\mathbb{F}_\textit{i}}(\textit{\textbf{f}}_\textit{j}\cdot\textit{\textbf{n}}_\textit{j})\textit{S}_\textit{j} $$
+$$
+\textit{R}(\phi_\textit{i}) = - \frac{1}{\textit{V}_\textit{i}}\sum_{\textit{j}\in\mathbb{F}_\textit{i}}(\textit{\textbf{f}}_\textit{j}\cdot\textit{\textbf{n}}_\textit{j})\textit{S}_\textit{j}
+$$
 
-$$ \frac{\partial}{\partial t}\phi_\textit{i} = \textit{R}(\phi_\textit{i}) $$
+$$
+\frac{\partial}{\partial t}\phi_\textit{i} = \textit{R}(\phi_\textit{i})
+$$
 
 と書き改めます。時間項に関しては、例えば、2次精度TVDルンゲクッタ法を用いて、
 
-$$ \phi_\textit{i,t}^* = \phi_\textit{i,t} + \Delta\textit{t}\textit{R}(\phi_\textit{i,t}) $$
+$$
+\phi_\textit{i,t}^* = \phi_\textit{i,t} + \Delta\textit{t}\textit{R}(\phi_\textit{i,t})
+$$
 
-$$ \phi_{\textit{i},\textit{t}+\Delta\textit{t}} = \frac{1}{2}\phi_\textit{i,t} + \frac{1}{2}(\phi_\textit{i,t}^*  + \Delta\textit{t}\textit{R}(\phi_\textit{i,t}^*)) $$
+$$
+\phi_{\textit{i},\textit{t}+\Delta\textit{t}} = \frac{1}{2}\phi_\textit{i,t} + \frac{1}{2}(\phi_\textit{i,t}^*  + \Delta\textit{t}\textit{R}(\phi_\textit{i,t}^*))
+$$
 
 と離散化し、2段階で解くことができます。これをプログラムとして実装すると、以下のような手順になります。
 
